@@ -63,7 +63,7 @@
       </div>
   </div>
 
-  <!-- cari mobil -->
+  <!-- filter -->
   <div class="container mt-5" id="filter-cari">
       <div class="row">
           <div class="col-md-12">
@@ -73,7 +73,7 @@
                           <div class="col-md-3">
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Tipe Driver</label>
-                                  <select class="form-control" id="exampleFormControlSelect1" value="sopir">
+                                  <select class="form-control" id="exampleFormControlSelect1" value="tipeDriver">
                                       <option value="ds">Dengan Sopir</option>
                                       <option value="ts">Tanpa Sopir(Lepas Kunci)</option>
                                   </select>
@@ -82,19 +82,19 @@
                           <div class="col-md-3">
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Tanggal</label>
-                                  <input type="date" value="tgl" class="form-control" id="exampleFormControlSelect1">
+                                  <input type="date" value="tanggal" class="form-control" id="exampleFormControlSelect1">
                               </div>
                           </div>
                           <div class="col-md-3">
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Waktu Jemput/Ambil</label>
-                                  <input type="time" value="wkt" class="form-control" id="exampleFormControlSelect1">
+                                  <input type="time" value="waktu" class="form-control" id="exampleFormControlSelect1">
                               </div>
                           </div>
                           <div class="col-md-3">
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Jumlah Penumpang</label>
-                                  <input class="form-control" id="exampleFormControlSelect1" value="penumpang" type="number" name="jumlah" max="7">
+                                  <input class="form-control" id="exampleFormControlSelect1" value="penumpang" type="number" name="jumlah">
                               </div>
                           </div>
                           <div class="col-md-3">
@@ -111,6 +111,12 @@
       </div>
   </div>
   
+    <section>
+        <div class="container">
+            <div class="row" id="cars-container">
+            </div>
+        </div>
+    </section>
   
     <div class="footer">
       <div class="container mt-5">

@@ -14,24 +14,32 @@ class App {
   }
 
   run = () => {
-    let dateTime = this.tgl.value + "T" + this.wkt.value;
-    let formdate = Date.parse(dateTime);
-    let waktu = Date.parse(car.availableAt);
-    Car.list.forEach((car) => {
-      let penumpang = this.penumpang.value;
-      let driver = this.sopir.value;
-      if (driver == "true") {
-        driver = true;
-      } else {
-        driver = "false";
-      }
+    let child = this.carContainerElement.firstElementChild;
 
+    while (child) {
+      child.remove();
+      child = this.carContainerElement.firstElementChild;
+    }
+    Car.list.forEach((car) => {
+     
+      let dateTime = this.tanggal.value + "T" + this.waktu.value;
+      let formdate = Date.parse(dateTime);
+      let waktu = Date.parse(car.availableAt);
+      let penumpang = this.penumpang.value;
+     
+      let driver = this.tipeDriver.value;
+      if(driver == "true"){
+        driver = true;
+      }else{
+        driver = false;
+      }
+      console.log(dateTime)
+      
       if (
-        car.available == driver &&
-        waktu >= formdate &&
-        car.capacity >= penumpang
+        car.available == driver && waktu >= formdate && car.capacity >= penumpang
       ) {
         const node = document.createElement("div");
+        node.className = 'col-md-6 col-sm-12 col-lg-4'
         node.innerHTML = car.render();
         this.carContainerElement.appendChild(node);
       }
