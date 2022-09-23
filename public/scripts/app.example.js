@@ -14,49 +14,28 @@ class App {
   }
 
   run = () => {
+    let dateTime = this.tgl.value + "T" + this.wkt.value;
+    let formdate = Date.parse(dateTime);
+    let waktu = Date.parse(car.availableAt);
     Car.list.forEach((car) => {
-      let dateTime = this.tgl.value + "T" + this.wkt.value;
-      let formdate = Date.parse(dateTime);
-      let waktu = Date.parse(car.availableAt);
       let penumpang = this.penumpang.value;
-      let driver = this.sopir.values;
-      if(driver == "true") {
+      let driver = this.sopir.value;
+      if (driver == "true") {
         driver = true;
       } else {
-        driver = false;
+        driver = "false";
       }
+
       if (
         car.available == driver &&
         waktu >= formdate &&
         car.capacity >= penumpang
-        ) {
-          const node = document.createElement("div");
-          node.innerHTML = car.render();
-          this.carContainerElement.appendChild(node);
+      ) {
+        const node = document.createElement("div");
+        node.innerHTML = car.render();
+        this.carContainerElement.appendChild(node);
       }
     });
-    // let dateTime = this.tgl.value + "T" + this.wkt.value;
-    // let formdate = Date.parse(dateTime);
-    // let waktu = Date.parse(car.availableAt);
-    // Car.list.forEach((car) => {
-    //   let penumpang = this.penumpang.value;
-    //   let driver = this.sopir.value;
-    //   if (driver == "true") {
-    //     driver = true;
-    //   } else {
-    //     driver = "false";
-    //   }
-
-    //   if (
-    //     car.available == driver &&
-    //     waktu >= formdate &&
-    //     car.capacity >= penumpang
-    //   ) {
-    //     const node = document.createElement("div");
-    //     node.innerHTML = car.render();
-    //     this.carContainerElement.appendChild(node);
-    //   }
-    // });
   };
 
   async load() {
